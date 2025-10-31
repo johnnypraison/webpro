@@ -1,0 +1,178 @@
+/* --- Global & Theme --- */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Dark Theme */
+  background-color: #121212 !important;
+  color: #f0f0f0 !important;
+}
+
+/* --- Utilities & Custom Bootstrap --- */
+.btn-yellow {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #121212;
+  font-weight: bold;
+}
+.btn-yellow:hover,
+.btn-yellow:focus {
+  background-color: #e0a800;
+  border-color: #d39e00;
+  color: #121212;
+  box-shadow: 0 0 8px rgba(255, 193, 7, 0.5);
+}
+
+.btn-yellow-outline {
+  border-color: #ffc107;
+  color: #ffc107;
+}
+.btn-yellow-outline:hover {
+  background-color: #ffc107;
+  color: #121212;
+}
+
+.text-yellow {
+  color: #ffc107 !important;
+}
+
+/* Dark theme forms */
+.form-control, .form-select {
+  background-color: #2a2a2a;
+  color: #fff;
+  border-color: #444;
+}
+.form-control:focus, .form-select:focus {
+  background-color: #2a2a2a;
+  color: #fff;
+  border-color: #ffc107;
+  box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+}
+.form-control::placeholder {
+  color: #888;
+}
+
+
+/* --- Animations --- */
+.pulse {
+  animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 193, 7, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+  }
+}
+
+/* --- Layout --- */
+/* 56px is default bootstrap navbar height */
+.scrollable-feed {
+  height: calc(100vh - 56px);
+  overflow-y: auto;
+}
+
+/* --- Components --- */
+
+/* Navbar */
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffc107 !important;
+}
+.navbar-dark .nav-link {
+  color: rgba(255, 255, 255, 0.7);
+}
+.navbar-dark .nav-link:hover {
+  color: #fff;
+}
+.navbar-dark .nav-link.active {
+  color: #ffc107 !important;
+  font-weight: 500;
+}
+
+/* Note Card (Glassmorphism) */
+.note-card {
+  background: rgba(33, 33, 33, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  word-wrap: break-word;
+}
+.note-card .note-nickname {
+  color: #ffc107;
+  font-weight: 600;
+}
+.note-card .note-text {
+  font-size: 1.1rem;
+}
+.note-card .note-meta {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+/* Skeleton Loader */
+.skeleton-note {
+  background: rgba(33, 33, 33, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+.skeleton-line {
+  height: 1rem;
+  border-radius: 4px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05) 25%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.05) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* --- Modal --- */
+/* NEWLY ADDED STYLES FOR THE DELETE MODAL */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px); /* Extra blur effect on background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal-content {
+  /* .note-card class is already applied for glassmorphism */
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  padding: 2rem;
+  z-index: 1001;
+}
